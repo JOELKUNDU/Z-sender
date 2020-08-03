@@ -6,6 +6,7 @@ The sender can specify a file to be transfered. The program outputs a random str
 The users can pre-authenticate each other for future communications, in this case a authentication key is generated and the sender is added to the receiver's contacts. 
 All future communications are verified to belong to the contact list if not, then a prompt is shown that say's file from an unknown sender. 
 
+(Project is still in production and testing)
 
 
 
