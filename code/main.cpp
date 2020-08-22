@@ -1,3 +1,7 @@
+// This code is placed in the public domain by JOEL KUNDU
+// under GNU GPL  v3.0.
+// This code is still in production stage and is incomplete.
+
 #include "Zsender.h"
 
 int main(int argc, char** argv) {

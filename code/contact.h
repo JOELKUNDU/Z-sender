@@ -1,3 +1,7 @@
+// This code is placed in the public domain by JOEL KUNDU
+// under GNU GPL  v3.0.
+// This code is still in production stage and is incomplete.
+
 #ifndef CONTACT_H
 #define CONTACT_H
 
@@ -6,30 +10,33 @@
 #include <sqlite3.h>
 
 using namespace std;
+namespace fs = std::filesystem;
 
 class contacts {
 private:
-
+	sqlite3* contactDB = NULL;
+	config Config;
 public:
-	void show() {
-
+	contacts(config c) {
+		Config = c;
+		string cwd = Config.getCWD();
+		if (!fs::exists(cwd)) {
+			//ERROR
+		}
+		else {
+			cwd = cwd + "contact.db";
+			if (!fs::exists(cwd)) {
+				//sql lite create table;
+			}
+		}
+		//load data base
 	}
-	void add() {
-
-	}
-	void remove() {
-
-	}
-	bool verifyContact(string contactID) {
-
-	}
-	string getContact() {
-		//return client access string
-
-	}
-	string getSelf() {
-		//ask server to send self invite link
-	}
+	void show();
+	void add();
+	void remove();
+	bool verifyContact(string contactID);
+	string getContact();
+	string getSelf();
 };
 
 #endif // !CONTACT_H

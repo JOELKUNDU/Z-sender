@@ -1,3 +1,7 @@
+// This code is placed in the public domain by JOEL KUNDU
+// under GNU GPL  v3.0.
+// This code is still in production stage and is incomplete.
+
 #ifndef ENCRYPTION_H
 #define ENCRYPTION_H
 
@@ -20,12 +24,8 @@ class encryptor {
 private:
 
 public:
-	string RSApriv(int keySize) {
-
-	}
-	string RSApub(int keySize) {
-
-	}
+	string RSApriv(int keySize);
+	string RSApub(int keySize);
 
 };
 
