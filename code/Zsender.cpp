@@ -1,20 +1,23 @@
 #include "Zsender.h"
 
+encryptor* Encryptor = new encryptor;
+
 //CleanUP
 void cleanup() {
 	cout << "\nCLEANING UP ... \n";
 	//any cleanup code if required
-
+	delete Encryptor;
 	//exit;
 	exit(0);
 }
 
 //Config Management
+config Config;
 
 void config::create(string userid) {
 	username = userid;
-	this->RSApriv = Encryptor.RSApriv(RSA_KEY);
-	this->RSApub = Encryptor.RSApub(RSA_KEY);
+	this->RSApriv = Encryptor->RSApriv();
+	this->RSApub = Encryptor->RSApub();
 }
 void config::readFile(string path) {
 	fstream read(path, ios::in | ios::binary);
@@ -31,15 +34,15 @@ void config::writeFile(string path) {
 	write << RSApub << " ";
 	write.close();
 }
-
 void loadConfig() {
 	string cwdf;
 #ifdef _WIN32
 	cwdf = "c:\\Zsender\\config.file";
 #endif // _WIN32
 #ifdef __linux__
-	cwdf = "/linux_path/config.file";
+	cwdf = "/home/user/Zsender/config.file";
 #endif // __linux__
+
 	Config.readFile(cwdf);
 }
 bool checkConfig() {
@@ -50,7 +53,7 @@ bool checkConfig() {
 #endif // _WIN32
 
 #ifdef __linux__
-	cwd = "/linux_path/";
+	cwd = "/home/user/Zsender/";
 #endif // __linux__
 
 	//check cwd exists
@@ -72,17 +75,32 @@ void makeConfig() {
 
 #ifdef _WIN32
 	cwd = "c:\\Zsender";
+	cwdf = cwd + "\\config.file";
 	wstring wcwd = wstring(cwd.begin(), cwd.end());
 	if (!_wmkdir(wcwd.c_str())) {
 		//Do Nothing as it won't fail
 	}
-	cwdf = cwd + "\\config.file";
+	cwd = "c:\\Zsender\\Downloads";
+	wcwd = wstring(cwd.begin(), cwd.end());
+	if (!_wmkdir(wcwd.c_str())) {
+		//Do Nothing as it won't fail
+	}
+	cwd = "c:\\Zsender\\Uploads";
+	wcwd = wstring(cwd.begin(), cwd.end());
+	if (!_wmkdir(wcwd.c_str())) {
+		//Do Nothing as it won't fail
+	}	
 #endif // _WIN32
 
 #ifdef __linux__
-	cwd = "/linux_path/";
-	mkdir(cwd);
+	cwd = "/home/user/Zsender";
 	cwdf = cwd + "/config.file";
+	mkdir(cwd);
+	cwd = "/home/user/Zsender/Downloads";
+	mkdir(cwd);
+	cwd = "/home/user/Zsender/Uploads";
+	mkdir(cwd);
+	
 #endif // __linux__
 
 	cout << "Enter your username: \t";
@@ -95,6 +113,7 @@ void makeConfig() {
 
 //User manager
 void loadup() {
+	
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
@@ -105,15 +124,15 @@ void loadup() {
 		string cmd;
 		cin >> cmd;
 		if (cmd == "send") {
-			//send();
+			send();
 			continue;
 		}
 		else if (cmd == "recv") {
-			//recv();
+			recv();
 			continue;
 		}
 		else if (cmd == "cont") {
-			//cont();
+			cont();
 			continue;
 		}
 		else if (cmd == "help") {
@@ -131,8 +150,8 @@ void loadup() {
 	cout << "Cleaning up and Exiting!!!" << endl;
 	cleanup();
 }
-
 void cmdLineLoadUP(char** cmd, int count) {
+	
 	vector<string> commands;
 
 	for (int a = 1; a < count; a++) {

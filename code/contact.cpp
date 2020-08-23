@@ -11,11 +11,17 @@ void contacts::remove() {
 }
 bool contacts::verifyContact(string contactID) {
 	//check contact exists 
+	return false;
 }
 string contacts::getContact() {
 	//return client access string
+	string out = "";
 
+	return out;
 }
 string contacts::getSelf() {
 	//ask server to send self invite link
+	string out = "";
+
+	return out;
 }

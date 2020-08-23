@@ -9,6 +9,7 @@ void logo() {
 	cout << endl;
 }
 void mainmenu() {
+	cout << endl;
 	cout << "1.\t[send]\t\tSend File" << endl;
 	cout << "2.\t[recv]\t\tRecieve File" << endl;
 	cout << "3.\t[cont]\t\tManage Contacts" << endl;
@@ -17,6 +18,7 @@ void mainmenu() {
 	cout << endl;
 }
 void help() {
+	cout << endl;
 	cout << "********************************" << endl;
 	cout << "*### HELP BOOK FOR Z-SENDER ###*" << endl;
 	cout << "********************************" << endl;
@@ -38,32 +40,44 @@ void help() {
 	cout << "********************************" << endl;
 }
 void send() {
-	cout << "1.\t[snew]\t\tSend to a new contact without transfer key" << endl;
-	cout << "2.\t[snwt]\t\tSend to a new contact with a transfer key" << endl;
+	cout << endl;
+	cout << "1.\t[snew]\t\tSend to a new contact or anonymously" << endl;
 	cout << "3.\t[sold]\t\tSend to an old contact" << endl;
 	cout << "4.\t[back]\t\tGo back to main menu" << endl;
-	cout << "Z-sender//SENDING>>";
-	string cmd1;
-	cin >> cmd1;
-	if (cmd1 == "back") {
-		return;
+	cout << endl;
+	while (true) {
+		cout << "Z-sender//SENDING>>";
+		string cmd1;
+		string filename;
+		cin >> cmd1;
+		if (cmd1 == "back") {
+			return;
+		}
+		else if (cmd1 == "help")help();
+		else if (cmd1 == "snew" || cmd1 == "sold") {
+			cout << "Enter path to the file to be sent: ";
+			getline(cin, filename);
+			try {
+				fstream(filename, ios::in);
+			}
+			catch (...) {
+				cout << "ERROR: unable to open the file";
+			}
+			sender s(cmd1, filename);
+		}
+		else {
+			cout << "ERROR: Command not found" << endl;
+			continue;
+		}
 	}
-	else if (cmd1 == "help")help();
-	string filename;
-	cout << "Enter path to the file to be sent: ";
-	getline(cin, filename);
-	try {
-		fstream(filename, ios::in);
-	}
-	catch (...) {
-		cout << "ERROR: unable to open the file";
-	}
-	sender s(cmd1, filename);
+
 }
 void recv() {
+	cout << endl;
 	cout << "1.\t[recn]\t\tRecieve From an unkown contact" << endl;
 	cout << "2.\t[reco]\t\tRecieve From a known contact" << endl;
 	cout << "4.\t[back]\t\tGo back to main menu" << endl;
+	cout << endl;
 	cout << "Z-sender//RECIEVING>>";
 	string cmd1;
 	cin >> cmd1;
@@ -73,10 +87,12 @@ void recv() {
 	else if (cmd1 == "help")help();
 }
 void cont() {
+	cout << endl;
 	cout << "1.\t[show]\t\tShow the contact list" << endl;
 	cout << "2.\t[cadd]\t\tAdd a new contact" << endl;
 	cout << "3.\t[rmov]\t\tRemove a contact" << endl;
 	cout << "4.\t[back]\t\tGo back to main menu." << endl;
+	cout << endl;
 	while (true) {
 		cout << "Z-sender//CONTACTS>>";
 		string cmd1;

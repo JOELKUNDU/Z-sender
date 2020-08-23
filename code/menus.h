@@ -5,10 +5,10 @@
 #ifndef MENUS_H
 #define MENUS_H
 
-#include "Zsender.h"
-#include "sender.h"
-#include "receiver.h"
-#include "contact.h"
+#include<string>
+#include<iostream>
+#include<fstream>
+#include"sender.h"
 
 using namespace std;
 

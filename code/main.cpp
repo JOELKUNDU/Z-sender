@@ -13,9 +13,11 @@ int main(int argc, char** argv) {
 		if (option == 'y' || option == 'Y') {
 			makeConfig();
 		}
-		else
-			cout << "ERROR: Config file required.\nExiting ...\n";
+		else {
+			cout << "\nERROR: Config file required.\nExiting ...\n";
 			cleanup();
+		}
+			
 		exit(0);
 	}
 

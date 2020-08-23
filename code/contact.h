@@ -5,12 +5,15 @@
 #ifndef CONTACT_H
 #define CONTACT_H
 
-#include "Zsender.h"
+#include <iostream>
+#include <filesystem>
 #include <string>
 #include <sqlite3.h>
-
+#include "Zsender.h"
 using namespace std;
 namespace fs = std::filesystem;
+
+
 
 class contacts {
 private:

@@ -18,9 +18,6 @@
 
 //Zsender Header Files
 #include "menus.h"
-#include "sender.h"
-#include "receiver.h"
-#include "contact.h"
 #include "encryption.h"
 
 
@@ -29,11 +26,7 @@ namespace fs = std::filesystem;
 
 #define		endl			'\n'
 #define		RSA_KEY			2048
-#define		linux_path		...
-
-//HANDLE CLEANUP OF PROCESSES
-
-void cleanup();
+#define		linux_path		home/user/Zsender
 
 //HANDLE CONFIGURATION AND SETTINGS
 
@@ -58,11 +51,24 @@ public:
 	string getCWD() {
 		return cwd;
 	}
+	string getPriv() {
+		return RSApriv;
+	}
+	string getPub() {
+		return RSApub;
+	}
+	~config() {
+
+	}
 };
-config Config;
+
 void loadConfig();
 bool checkConfig();
 void makeConfig();
+
+//HANDLE CLEANUP OF PROCESSES
+
+void cleanup();
 
 //HANDLE COMMANDS AND UI
 
