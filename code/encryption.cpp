@@ -1,7 +1,8 @@
-#define _CRT_SECURE_NO_WARNINGS
 // This code is placed in the public domain by JOEL KUNDU
 // under GNU GPL  v3.0.
 // This code is still in production stage and is incomplete.
+
+#define _CRT_SECURE_NO_WARNINGS
 
 #include "encryption.h"
 
@@ -53,11 +54,33 @@ void RSA::loadConfig(string path) {
 	privkey = (CryptoPP::RSA::PrivateKey*)getDecoded(privstr);
 	pubkey = (CryptoPP::RSA::PublicKey*)getDecoded(pubstr);
 }
+string RSA::Zencrypt(string msg) {
+	string zpub;	
+	CryptoPP::RSAES<CryptoPP::OAEP<CryptoPP::SHA256>>::Encryptor E(
+		*(CryptoPP::RSAES<CryptoPP::OAEP<CryptoPP::SHA256>>::PublicKey*)getDecoded(zpub));
+	string out;
+	CryptoPP::StringSource S(msg, true,
+		new CryptoPP::PK_EncryptorFilter(rng,E,
+			new CryptoPP::StringSink(out)
+		));
+	return out;
+}
+string RSA::Zdecrypt(string msg) {
+	string zpriv;
+	CryptoPP::RSAES<CryptoPP::OAEP<CryptoPP::SHA256>>::Decryptor D(
+		*(CryptoPP::RSAES<CryptoPP::OAEP<CryptoPP::SHA256>>::PublicKey*)getDecoded(zpriv));
+	string out;
+	CryptoPP::StringSource S(msg, true,
+		new CryptoPP::PK_DecryptorFilter(rng, D,
+			new CryptoPP::StringSink(out)
+		));
+	return out;
+}
 string RSA::encrypt(string msg) {
 	CryptoPP::RSAES<CryptoPP::OAEP<CryptoPP::SHA256>>::Encryptor E(*pubkey);
 	string out;
 	CryptoPP::StringSource S(msg, true,
-		new CryptoPP::PK_EncryptorFilter(rng,E,
+		new CryptoPP::PK_EncryptorFilter(rng, E,
 			new CryptoPP::StringSink(out)
 		));
 	return out;
@@ -71,6 +94,7 @@ string RSA::decrypt(string msg) {
 		));
 	return out;
 }
+
 
 //CLASS - AES_GCM 
 

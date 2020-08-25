@@ -9,36 +9,23 @@
 #include <filesystem>
 #include <string>
 #include <sqlite3.h>
-#include "Zsender.h"
+#include <fstream>
+#include <sstream>
+#include "encryption.h"
 using namespace std;
 namespace fs = std::filesystem;
-
-
 
 class contacts {
 private:
 	sqlite3* contactDB = NULL;
-	config Config;
+	string cwdf;
 public:
-	contacts(config c) {
-		Config = c;
-		string cwd = Config.getCWD();
-		if (!fs::exists(cwd)) {
-			//ERROR
-		}
-		else {
-			cwd = cwd + "contact.db";
-			if (!fs::exists(cwd)) {
-				//sql lite create table;
-			}
-		}
-		//load data base
-	}
+	contacts();
 	void show();
-	void add();
-	void remove();
+	void add(string code);
+	void remove(string id);
 	bool verifyContact(string contactID);
-	string getContact();
+	string getContactKey(string id);
 	string getSelf();
 };
 

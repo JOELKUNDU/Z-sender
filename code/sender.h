@@ -15,9 +15,10 @@ class sender
 private:
 
 public:
-	sender(string cmd, string filename) {
-
-	}
+	
 };
+
+void sendNew(string filename);
+void sendOld(string filename);
 
 #endif // !SENDER_H

@@ -44,13 +44,14 @@ protected:
 class RSA : public virtual base64{
 	CryptoPP::RSAES<CryptoPP::OAEP<CryptoPP::SHA256>>::PrivateKey *privkey;
 	CryptoPP::RSAES<CryptoPP::OAEP<CryptoPP::SHA256>>::PublicKey *pubkey;
-
 	CryptoPP::AutoSeededRandomPool rng;
 	bool generated = false;
 public:
 	RSA();
 	void genRSAKeys();
 	void loadConfig(string path);
+	string Zencrypt(string msg);
+	string Zdecrypt(string msg);
 	string encrypt(string msg);
 	string decrypt(string msg);
 	string getPrivate() {
@@ -62,7 +63,7 @@ public:
 };
 
 //aes-gcm code
-class AES_GCM : public commanEncryptor {
+class AES_GCM : public virtual commanEncryptor {
 private:
 	CryptoPP::AutoSeededRandomPool rng;
 	string passcode;
@@ -88,7 +89,6 @@ public:
 	string RSApub() {
 		return getPublic();
 	}
-
 };
 
 #endif // !ENCRYPTION_H

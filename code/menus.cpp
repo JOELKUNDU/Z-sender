@@ -101,6 +101,5 @@ void cont() {
 			return;
 		}
 		else if (cmd1 == "help")help();
-
 	}
 }
