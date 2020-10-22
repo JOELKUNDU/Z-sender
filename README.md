@@ -12,7 +12,7 @@ Then simply compile the files in the CODE dir using any compiler of your choice.
 <br>
 TIP: Incase of LINUX systems drop the bin in BIN dir, incase of WINDOWS add the path to the exe to your PATH enviroment variables; doing this allows you to start the program simply by typing Zsender in the terminal instead of the entire path to the executable.<br>
 <br>
-<h2>CONTACT ME:</h2><br>
+<h2>Contact Information:</h2><br>
 EMAIL: jdevcode2@gmail.com<br>
 
 
