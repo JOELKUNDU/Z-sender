@@ -14,6 +14,10 @@ TIP: Incase of LINUX systems drop the bin in BIN dir, incase of WINDOWS add the 
 <br>
 <h2>Contact Information:</h2><br>
 EMAIL: jdevcode2@gmail.com<br>
+<br>
+Refer to ISSUE TEMPLATES to raise issues.<br>
+Refer to Code Of Conduct and License files for legal information<br>
+The project is provided as OPEN SOURCE under GNU GPL v3.<br>
 
 
 
