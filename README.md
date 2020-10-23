@@ -12,6 +12,20 @@ Then simply compile the files in the CODE dir using any compiler of your choice.
 <br>
 TIP: Incase of LINUX systems drop the bin in BIN dir, incase of WINDOWS add the path to the exe to your PATH enviroment variables; doing this allows you to start the program simply by typing Zsender in the terminal instead of the entire path to the executable.<br>
 <br>
+<h2>How to use?</h2><br>
+TO SEND A FILE<br>
+        1. Type in 'send' when prompted on the Main Menu.<br>
+        2. Enter the complete path to the file to be sent.<br>
+        3. Create a Password (more than 8 characters long).<br>
+           If you don't create one then a password will be generated.<br>
+        4. Send the Generated RECIEVE CODE and the PASSWORD to the reciever.<br>
+        5. Wait for the reciever to download the file.(KEEP THE TERMINAL OPEN)<br>
+<br>
+TO RECIEVE A FILE<br>
+        1. Enter the code and the password given by the user.<br>
+        2. Enter the OUTPUT PATH (where the downloaded file should be saved.<br>
+        3. Wait for the system to connect, download and decrpyt the file.(KEEP THE TERMINAL OPEN)<br>
+<br>
 <h2>Contact Information:</h2><br>
 EMAIL: jdevcode2@gmail.com<br>
 <br>
