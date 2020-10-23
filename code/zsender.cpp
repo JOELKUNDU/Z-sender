@@ -199,9 +199,10 @@ void menus::help(){
 	cout << "\t5. Wait for the reciever to download the file.(KEEP THE TERMINAL OPEN)" << endl;
 	cout << endl;
 	cout << "> TO RECIEVE A FILE" << endl;
-	cout << "\t1. Enter the code and the password given by the user." << endl;
-	cout << "\t2. Enter the OUTPUT PATH (where the downloaded file should be saved." << endl;
-	cout << "\t3. Wait for the system to connect, download and decrpyt the file.(KEEP THE TERMINAL OPEN)" << endl;
+	cout << "\t1. Type in 'recv' when prompted on the Main Menu." << endl;
+	cout << "\t2. Enter the code and the password given by the user." << endl;
+	cout << "\t3. Enter the OUTPUT PATH (where the downloaded file should be saved." << endl;
+	cout << "\t4. Wait for the system to connect, download and decrpyt the file.(KEEP THE TERMINAL OPEN)" << endl;
 	cout << endl;
 	cout << "NOTE: \nThe downloaded encrypted file can also be decypted using ZENC.\n\n";
 	cout << "IMPORTANT DIRs" << endl;
