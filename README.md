@@ -8,7 +8,7 @@ Encrypted Files can also be decrypted using ZENC (https://github.com/JOELKUNDU/Z
 <br>
 <h2>How to setup?</h2><br>
 Make sure you have the latest libcurl and crypto++ libraries installed on your system. Also use c++ standard 17 and above.<br>
-Then simply compile the files in the CODE dir using any compiler of your choice. In-case of issues contact me @ jdevcode@gmail.com<br>
+Then simply compile the files in the CODE dir using any compiler of your choice. In-case of issues contact me @ jdevcode2@gmail.com<br>
 <br>
 TIP: Incase of LINUX systems drop the bin in BIN dir, incase of WINDOWS add the path to the exe to your PATH enviroment variables; doing this allows you to start the program simply by typing Zsender in the terminal instead of the entire path to the executable.<br>
 <br>
