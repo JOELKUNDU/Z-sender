@@ -1,3 +1,7 @@
+// This code is placed in the public domain by JOEL KUNDU
+// under GNU GPL  v3.0. 
+// CONTACT: jdevcode2@gmail.com
+
 #pragma once
 #ifndef ZSENDER_H
 #define ZSENDER_H
@@ -19,17 +23,27 @@
 #include <cryptopp/hkdf.h>
 #include <cryptopp/filters.h>
 #include <cryptopp/files.h>
+#include <cryptopp/hex.h>
 
 #ifdef _WIN32
 #include <WS2tcpip.h>
 #pragma comment (lib,"ws2_32.lib")
 #endif
 
+#ifdef __linux__
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <arpa/inet.h>
+#include <string.h>
+#endif
+
 
 using namespace std;
 namespace fs = std::filesystem;
 
-#define		PORT	6842
+#define		PORT	54000	
 
 //class to store the session data;
 /*
@@ -56,7 +70,6 @@ private:
 	string cwdf = "/home/user/Zsender/config.file";
 	string cwdd = "/home/user/Zsender/Downloads";
 	string cwdu = "/home/user/Zsender/Uploads";
-	string cwdk = "/home/user/Zsender/Keys";
 #endif // __linux__
 	string name="Zsender";
 	bool stockKeys = true;
@@ -142,6 +155,7 @@ class sendServer {
 	string code;
 	vector<string> fileContent;
 	int cLen = 128;
+	static size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp);
 	string genChallenge();		//generates the challenge
 	vector<string>processFile();//Processes the file into a vector of strings 4095 chars long.
 public:
@@ -185,5 +199,6 @@ public:
 												//assign download path
 	void startServer();							//Starts the recieving server 
 	string getPath();							//return the the download path.
+	string retOutputPath(string path);			//return the full outputPath		
 };
 #endif 
