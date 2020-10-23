@@ -22,9 +22,10 @@ TO SEND A FILE<br>
         5. Wait for the reciever to download the file.(KEEP THE TERMINAL OPEN)<br>
 <br>
 TO RECIEVE A FILE<br>
-        1. Enter the code and the password given by the user.<br>
-        2. Enter the OUTPUT PATH (where the downloaded file should be saved.<br>
-        3. Wait for the system to connect, download and decrpyt the file.(KEEP THE TERMINAL OPEN)<br>
+        1. Type in 'recv' when prompted on the Main Menu.<br>
+        2. Enter the code and the password given by the user.<br>
+        3. Enter the OUTPUT PATH (where the downloaded file should be saved.<br>
+        4. Wait for the system to connect, download and decrpyt the file.(KEEP THE TERMINAL OPEN)<br>
 <br>
 <h2>Contact Information:</h2><br>
 EMAIL: jdevcode2@gmail.com<br>
